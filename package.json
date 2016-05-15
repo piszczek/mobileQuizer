@@ -22,7 +22,8 @@
   },
   "cordovaPlugins": [
     "cordova-plugin-device",
-    "phonegap-plugin-barcodescanner"
+    "phonegap-plugin-barcodescanner",
+    "cordova-plugin-vibration"
   ],
   "cordovaPlatforms": [
     "ios"
