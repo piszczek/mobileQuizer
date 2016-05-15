@@ -1,9 +1,33 @@
 <ion-navbar *navbar>
     <ion-title>
-        {{ repo.name }}
+        {{ quiz.title }}
     </ion-title>
 </ion-navbar>
 
-<ion-content>
-    <div padding [innerHTML]="readme"></div>
+<ion-content class="details">
+
+    <ion-card *ngFor="#question of quiz.questions">
+        <ion-card-header>
+            {{ question.title }}
+        </ion-card-header>
+
+        <ion-card-content>
+            <ion-list radio-group [(ngModel)]="question.answer">
+                <ion-item *ngFor="#answer of question.answers | sort ">
+                    <ion-label>
+                        <div *ngIf="check && (question.answer == answer.id || question.answer == answer.correct.toString())" style="display: inline">
+                            <ion-icon *ngIf="question.answer == 'true'" name="checkmark-circle-outline" class="success"></ion-icon>
+                            <ion-icon *ngIf="question.answer != 'true'" name="close-circle" class="danger"></ion-icon>
+                        </div>
+                        {{answer.title}}
+                    </ion-label>
+                    <ion-radio value="{{ answer.correct?answer.correct:answer.id }}"></ion-radio>
+                </ion-item>
+            </ion-list>
+        </ion-card-content>
+
+    </ion-card>
+    <button round (click)="checkAnswers()">Sprawdź odpowiedzi</button>
+    <hr/>
+    <button light round (click)="saveQuiz()">Zapisz Quiz</button>
 </ion-content>

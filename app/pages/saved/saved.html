@@ -5,26 +5,12 @@
     </button>
 
     <ion-title>
-        Quizer
+        Zapisane quizy
     </ion-title>
 </ion-navbar>
 
 <ion-content class="home">
-    <h1>
-        Witaj!
-    </h1>
-
-    <hr/>
-    <div padding>
-        <button block (click)="goToSaved()">Przejdź do zapisanych</button>
-    </div>
-
-    <hr>
-    <div padding>
-        <button block (click)="getQuizes()">Pobierz listę quizów</button>
-    </div>
-
-    <ion-card *ngFor="#quiz of foundQuizes" (click)="goToDetails(quiz)">
+    <ion-card *ngFor="#quiz of savedQuizes" (click)="goToDetails(quiz)">
         <ion-card-header>
             {{ quiz.title }}
         </ion-card-header>

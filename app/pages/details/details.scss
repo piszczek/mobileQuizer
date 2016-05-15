@@ -1,0 +1,8 @@
+.details {
+  .correct {
+    color: color($colors, favorite);
+  }
+  .danger {
+    color: color($colors, danger);
+  }
+}

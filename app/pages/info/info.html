@@ -1,0 +1,21 @@
+<ion-navbar *navbar>
+
+    <button menuToggle>
+        <ion-icon name='menu'></ion-icon>
+    </button>
+
+    <ion-title>
+        Informacje o urządzeniu
+    </ion-title>
+</ion-navbar>
+
+<ion-content class="home">
+    <ion-card>
+        <ion-card-header>
+            {{ device.model }}
+        </ion-card-header>
+        <ion-card-content>
+            {{ device|json }}
+        </ion-card-content>
+    </ion-card>
+</ion-content>
